@@ -35,7 +35,7 @@ public class Main {
         for (int i = 0; i < members.length; i++) {
             boolean result = true;
             for (int j = 0; j < barriers.length; j++) {
-                result = barriers[j].moving(members[i]);
+                result = barriers[j].move(members[i]);
                 if (!result) {
                     break;
                 }

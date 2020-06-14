@@ -14,7 +14,7 @@ public class Wall  extends Barrier {
     }
 
     @Override
-    protected boolean moving(Competitors members) {
+    protected boolean move(Competitors members) {
         System.out.println(super.getName() + " высота: " + this.heigth);
 
         members.jump();

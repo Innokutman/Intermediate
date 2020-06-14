@@ -14,7 +14,7 @@ public class Road extends Barrier {
     }
 
     @Override
-    protected boolean moving(Competitors members) {
+    protected boolean move(Competitors members) {
         System.out.println(super.getName() + " длина: " + this.length);
 
         members.run();
