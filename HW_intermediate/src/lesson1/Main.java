@@ -1,73 +1,51 @@
 package lesson1;
 
-import java.io.Serializable;
+import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
-        Runnable cat = new Cat("Barsik");
-        Runnable dog = new Dog("Tuzik");
+        Random rand = new Random();
+        Competitors[] members = new Competitors[3];
 
+        int distance = (rand.nextInt(10) + 1);
+        int heigth = (rand.nextInt(10) + 1);
+        members[0] = new Human("Хусейн Болт", distance, heigth);
 
-//        cat.run();
-//        dog.run();
+        distance = (rand.nextInt(10) + 1);
+        heigth = (rand.nextInt(10) + 1);
+        members[1] = new Robot("Вертер", distance, heigth);
 
-//        runPlease(cat);
-//        runPlease(dog);
+        distance = (rand.nextInt(10) + 1);
+        heigth = (rand.nextInt(10) + 1);
+        members[2] = new Cat("Басик", distance, heigth);
 
-//        Runnable[] runnables = {new Cat("Barsik"),
-//                new Dog("Tuzik"),
-//                new Cat("Murzik"),
-//                new Dog("Vulkan")
-//        };
-//
-//        for (int i = 0; i < runnables.length ; i++) {
-//            runnables[i].run();
-//            if(runnables[i] instanceof Jumpable){
-//                ((Jumpable)runnables[i]).jump();
-//            }
-//        }
+        Barrier[] barriers = new Barrier[6];
 
+        boolean isRoad;
+        for (int i = 0; i < barriers.length; i++) {
+            distance = rand.nextInt(10);
+            isRoad = rand.nextBoolean();
+            if (isRoad) {
+                barriers[i] = new Road("Впереди препятствие беговая дорожка № " + (i + 1), distance);
+            } else {
+                barriers[i] = new Wall("Впереди препятствие стена № " + (i + 1), distance);
+            }
+        }
 
-//        Cat cat1 = new Cat("Murka");
-//        Kangaroo kangaroo = new Kangaroo();
-//
-//        Jumpable[] jumpables = {
-//                cat1,
-//                kangaroo
-//        };
+        for (int i = 0; i < members.length; i++) {
+            boolean result = true;
+            for (int j = 0; j < barriers.length; j++) {
+                result = barriers[j].moving(members[i]);
+                if (!result) {
+                    break;
+                }
+            }
 
-//        for (int i = 0; i < jumpables.length; i++) {
-//            jumpables[i].jump();
-//        }
-
-//        for (Jumpable j : jumpables) {
-//            if (j instanceof SuperJumpable) {
-//                ((SuperJumpable) j).superJump(5);
-//            } else {
-//                j.jump();
-//            }
-//            j.middleJump();
-//        }
-
-
-//        runPlease(cat);
-//        runPlease(dog);
-
-//        runPlease(new Runnable() {
-//            @Override
-//            public void run() {
-//                System.out.println("run run run");
-//            }
-//        });
-
-//        runPlease(() -> {
-//            System.out.println("run run run");
-//        });
-
+            if (result) {
+                System.out.println("Продолжает маршрут!");
+            } else {
+                System.out.println("Завершает забег!");
+            }
+        }
     }
-
-    static void runPlease(Runnable r) {
-        r.run();
-    }
-
 }

@@ -1,11 +1,11 @@
 package lesson1;
 
-public class Cat implements Competitors {
+public class Robot implements Competitors {
     private String name;
     private int runDistance;
     private int jumpHeight;
 
-    public Cat (String name, int distance, int jumpHeight) {
+    public Robot(String name, int distance, int jumpHeight) {
         this.name = name;
         this.runDistance = distance;
         this.jumpHeight = jumpHeight;
@@ -13,12 +13,12 @@ public class Cat implements Competitors {
 
     @Override
     public void run() {
-        System.out.println("Кошка " + this.name + " способен пробежать " + this.getRunDistance());
+        System.out.println("Робот " + this.name + " способен пробежать " + this.getRunDistance());
     }
 
     @Override
     public void jump() {
-        System.out.println("Кошка " + this.name + " способен прыгнуть " + this.getJumpHeight());
+        System.out.println("Робот " + this.name + " способен прыгнуть " + this.getJumpHeight());
     }
 
     @Override
