@@ -8,7 +8,6 @@ public class Server {
     private static final int SERVER_PORT = 8070;
 
     public static void main(String[] args) {
-
         new Server().startServer();
     }
 
