@@ -38,5 +38,6 @@ public class Chat extends JFrame {
         button.addActionListener(new TextReciever(textField, textArea));
 
         setVisible(true);
+
     }
 }
