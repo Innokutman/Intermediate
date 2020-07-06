@@ -1,14 +1,13 @@
 package lesson6;
-import java.io.*;
-import java.net.ServerSocket;
-import java.net.Socket;
+        import java.io.*;
+        import java.net.ServerSocket;
+        import java.net.Socket;
 
 public class Server {
 
     private static final int SERVER_PORT = 8070;
 
     public static void main(String[] args) {
-
         new Server().startServer();
     }
 
